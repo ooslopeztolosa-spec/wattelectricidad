@@ -116,7 +116,8 @@ const portfolio = {
     media: [
       { type: "image", src: "assets/callao-consultorio.jpg", alt: "Consultorio odontológico terminado" },
       { type: "image", src: "assets/callao-sala.jpg", alt: "Iluminación de la sala del consultorio" },
-      { type: "image", src: "assets/callao-tablero.jpg", alt: "Tablero eléctrico del consultorio" }
+      { type: "image", src: "assets/callao-tablero.jpg", alt: "Tablero eléctrico del consultorio" },
+      { type: "instagram", id: "Dep1yKiu2c4", src: "assets/instagram-reel-callao.jpg", alt: "Portada del Reel de la instalación eléctrica integral en Consultorios de Callao", title: "Ver la obra en Instagram" }
     ]
   },
   trafwe: {
@@ -124,25 +125,25 @@ const portfolio = {
     description: "Trabajo eléctrico en un espacio comercial de Necochea, con planificación, ejecución y verificación de la instalación.",
     media: [
       { type: "image", src: "assets/trafwe-local.jpg", alt: "Frente del Balneario Trafwe" },
-      { type: "image", src: "assets/trafwe-tablero.jpg", alt: "Tablero eléctrico del balneario" }
+      { type: "image", src: "assets/trafwe-tablero.jpg", alt: "Tablero eléctrico del balneario" },
+      { type: "instagram", id: "DeaizPkuXKS", src: "assets/instagram-reel-trafwe.jpg", alt: "Portada del Reel de readecuación eléctrica del Balneario Trafwe", title: "Ver la obra en Instagram" }
     ]
   },
-  residencial: {
-    title: "Mejoras en el hogar", kicker: "SERVICIOS PUNTUALES · NECOCHEA",
-    description: "También resolvemos trabajos concretos en viviendas: colocación de luminarias, extractores, ventiladores, tomas y revisión de fallas eléctricas.",
+  reparacion: {
+    title: "Relevamiento y reparación", kicker: "SERVICIO PUNTUAL · WATT",
+    description: "Una instalación existente también merece atención: revisamos los puntos a intervenir y resolvemos las reparaciones necesarias.",
     media: [
-      { type: "image", src: "assets/residencial-luminaria.jpg", alt: "Colocación de una luminaria colgante" },
-      { type: "image", src: "assets/residencial-luminaria-detalle.jpg", alt: "Detalle de instalación de luminaria" },
+      { type: "instagram", id: "DeXWOWjugMg", src: "assets/instagram-reel-reparacion.jpg", alt: "Portada oficial de WATT para el Reel de relevamiento y reparación eléctrica", title: "Ver el trabajo en Instagram" }
     ]
   },
   videos: {
     title: "Videos de obra", kicker: "WATT · PROCESOS REALES",
-    description: "Cuatro Reels de trabajos realizados por WATT. Los videos se cargan desde Instagram al abrir esta carpeta.",
+    description: "Portadas reales de los Reels de WATT. Cada imagen abre el video original en Instagram.",
     media: [
-      { type: "instagram", id: "DeXWOWjugMg", title: "Proceso de obra WATT · 1" },
-      { type: "instagram", id: "DeXshmzOEel", title: "Proceso de obra WATT · 2" },
-      { type: "instagram", id: "DeaizPkuXKS", title: "Proceso de obra WATT · 3" },
-      { type: "instagram", id: "Dep1yKiu2c4", title: "Proceso de obra WATT · 4" }
+      { type: "instagram", id: "DeXWOWjugMg", src: "assets/instagram-reel-reparacion.jpg", alt: "Portada de WATT para el Reel de relevamiento y reparación eléctrica", title: "Relevamiento y reparación" },
+      { type: "instagram", id: "DeXshmzOEel", src: "assets/instagram-reel-fin-obra.jpg", alt: "Portada del Reel de cierre de obra de WATT", title: "Fin de obra" },
+      { type: "instagram", id: "DeaizPkuXKS", src: "assets/instagram-reel-trafwe.jpg", alt: "Portada del Reel del Balneario Trafwe en Necochea", title: "Balneario Trafwe · Necochea" },
+      { type: "instagram", id: "Dep1yKiu2c4", src: "assets/instagram-reel-callao.jpg", alt: "Portada del Reel de Consultorios de Callao", title: "Consultorios de Callao" }
     ]
   }
 };
@@ -160,17 +161,20 @@ document.querySelectorAll(".folder-card").forEach((card) => {
       const figure = document.createElement("figure");
       if (item.type === "instagram") {
         figure.classList.add("instagram-reel");
-        const blockquote = document.createElement("blockquote");
-        blockquote.className = "instagram-media";
-        blockquote.dataset.instgrmPermalink = `https://www.instagram.com/reel/${item.id}/`;
-        blockquote.dataset.instgrmVersion = "14";
-        const fallback = document.createElement("a");
-        fallback.href = blockquote.dataset.instgrmPermalink;
-        fallback.target = "_blank";
-        fallback.rel = "noreferrer";
-        fallback.textContent = `${item.title} · Abrir en Instagram`;
-        blockquote.append(fallback);
-        figure.append(blockquote);
+        const link = document.createElement("a");
+        link.className = "reel-preview-link";
+        link.href = `https://www.instagram.com/reel/${item.id}/`;
+        link.target = "_blank";
+        link.rel = "noreferrer";
+        const image = document.createElement("img");
+        image.src = item.src;
+        image.alt = item.alt;
+        image.loading = "lazy";
+        const overlay = document.createElement("span");
+        overlay.className = "reel-preview-cta";
+        overlay.textContent = "Ver Reel en Instagram";
+        link.append(image, overlay);
+        figure.append(link);
       } else {
         const image = document.createElement("img");
         image.src = item.src;
@@ -183,16 +187,6 @@ document.querySelectorAll(".folder-card").forEach((card) => {
       figure.append(caption);
       dialogGallery.append(figure);
     });
-    if (!document.querySelector("#instagram-embed-script")) {
-      const embedScript = document.createElement("script");
-      embedScript.id = "instagram-embed-script";
-      embedScript.async = true;
-      embedScript.src = "https://www.instagram.com/embed.js";
-      embedScript.onload = () => window.instgrm?.Embeds?.process();
-      document.body.append(embedScript);
-    } else {
-      window.instgrm?.Embeds?.process();
-    }
     dialog.showModal();
   });
 });
