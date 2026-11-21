@@ -1,13 +1,6 @@
 const WATT_WHATSAPP_NUMBER = "5491178248881"; // Argentina mobile, digits only.
 const WATT_INSTAGRAM_URL = "https://www.instagram.com/watt_electricidad/";
 
-const instagramLink = document.querySelector("#instagram-link");
-instagramLink.href = WATT_INSTAGRAM_URL;
-const whatsappLink = document.querySelector(".whatsapp-link");
-whatsappLink.href = `https://wa.me/${WATT_WHATSAPP_NUMBER}`;
-whatsappLink.target = "_blank";
-whatsappLink.rel = "noreferrer";
-
 const messages = document.querySelector("#chat-messages");
 const options = document.querySelector("#chat-options");
 const resetButton = document.querySelector("#chat-reset");
@@ -82,7 +75,7 @@ function showContact() {
     "¿Me pueden ayudar?"
   ].join(" ");
   button.href = `https://wa.me/${WATT_WHATSAPP_NUMBER}?text=${encodeURIComponent(detail)}`;
-  button.textContent = "Seguir por WhatsApp ↗";
+  button.textContent = "Continuar por WhatsApp";
   options.append(button);
   const restart = document.createElement("button");
   restart.type = "button";
@@ -96,7 +89,7 @@ function resetChat() {
   step = 0;
   Object.keys(answers).forEach((key) => delete answers[key]);
   messages.replaceChildren();
-  addMessage("¡Hola! 👋 Te ayudo a encontrar el mejor camino. ¿Qué tipo de consulta tenés?");
+  addMessage("¡Hola! Te ayudo a encaminar tu consulta. ¿Qué tipo de trabajo necesitás?");
   options.replaceChildren();
   flow[0].choices.forEach((choice) => {
     const button = document.createElement("button");
@@ -175,7 +168,7 @@ document.querySelectorAll(".folder-card").forEach((card) => {
         fallback.href = blockquote.dataset.instgrmPermalink;
         fallback.target = "_blank";
         fallback.rel = "noreferrer";
-        fallback.textContent = `${item.title} · Abrir en Instagram ↗`;
+        fallback.textContent = `${item.title} · Abrir en Instagram`;
         blockquote.append(fallback);
         figure.append(blockquote);
       } else {
