@@ -5,12 +5,18 @@ const messages = document.querySelector("#chat-messages");
 const options = document.querySelector("#chat-options");
 const resetButton = document.querySelector("#chat-reset");
 const answers = {};
+const smartHome = "Smart home e iluminación";
 
 const flow = [
   {
     key: "necesidad",
-    prompt: "¿Qué tipo de consulta tenés?",
-    choices: ["Instalación integral", "Obra nueva", "Reforma o ampliación", "Servicio puntual", "Otra consulta"]
+    prompt: "¡Hola! ¿Qué tipo de trabajo necesitás?",
+    choices: ["Instalación integral", "Obra nueva", "Reforma o ampliación", "Servicio puntual", smartHome, "Otra consulta"]
+  },
+  {
+    key: "domotica",
+    prompt: "¿Qué te gustaría hacer con la iluminación?",
+    choices: ["Instalar luminarias inteligentes", "Conectar mis luces con Alexa", "Programar horarios", "Busco asesoramiento"]
   },
   {
     key: "espacio",
@@ -40,6 +46,7 @@ function addMessage(text, type = "bot") {
 }
 
 function showQuestion() {
+  if (flow[step]?.key === "domotica" && answers.necesidad !== smartHome) step += 1;
   if (step >= flow.length) return showContact();
   const question = flow[step];
   addMessage(question.prompt);
@@ -49,14 +56,16 @@ function showQuestion() {
     button.type = "button";
     button.className = "chat-option";
     button.textContent = choice;
-    button.addEventListener("click", () => {
-      answers[question.key] = choice;
-      addMessage(choice, "user");
-      step += 1;
-      window.setTimeout(showQuestion, 260);
-    });
+    button.addEventListener("click", () => answerQuestion(choice));
     options.append(button);
   });
+}
+
+function answerQuestion(choice) {
+  answers[flow[step].key] = choice;
+  addMessage(choice, "user");
+  step += 1;
+  showQuestion();
 }
 
 function showContact() {
@@ -67,8 +76,9 @@ function showContact() {
   button.target = "_blank";
   button.rel = "noreferrer";
   const detail = [
-    "Hola Watt, llegué desde la web.",
+    "Hola WATT, llegué desde la web.",
     `Necesito: ${answers.necesidad}.`,
+    ...(answers.domotica ? [`Me interesa: ${answers.domotica}.`] : []),
     `Espacio: ${answers.espacio}.`,
     `Localidad: ${answers.zona}.`,
     `Tiempo: ${answers.momento}.`,
@@ -89,24 +99,14 @@ function resetChat() {
   step = 0;
   Object.keys(answers).forEach((key) => delete answers[key]);
   messages.replaceChildren();
-  addMessage("¡Hola! Te ayudo a encaminar tu consulta. ¿Qué tipo de trabajo necesitás?");
-  options.replaceChildren();
-  flow[0].choices.forEach((choice) => {
-    const button = document.createElement("button");
-    button.type = "button";
-    button.className = "chat-option";
-    button.textContent = choice;
-    button.addEventListener("click", () => {
-      answers[flow[0].key] = choice;
-      addMessage(choice, "user");
-      step = 1;
-      window.setTimeout(showQuestion, 260);
-    });
-    options.append(button);
-  });
+  showQuestion();
 }
 
 resetButton.addEventListener("click", resetChat);
+document.querySelector("#smart-home-contact").addEventListener("click", () => {
+  resetChat();
+  answerQuestion(smartHome);
+});
 resetChat();
 
 const portfolio = {

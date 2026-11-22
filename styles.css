@@ -101,10 +101,11 @@ img { max-width: 100%; }
 .service-path-small .service-path-copy { order: 0; padding-top: 33px; }
 .service-path-small .service-photo { order: 1; height: 215px; }
 .service-path-small .service-photo img { object-position: center 32%; }
-.service-footnote { display: flex; align-items: center; gap: 14px; max-width: 680px; margin-top: 25px; color: #597087; }
-.service-footnote p { margin: 0; font-size: 14px; line-height: 1.6; }
-.line-symbol { position: relative; width: 40px; height: 1px; flex: 0 0 40px; background: var(--blue); }
-.line-symbol::after { position: absolute; top: -4px; right: 3px; width: 8px; height: 8px; border: 1px solid var(--blue); border-radius: 50%; background: var(--paper); content: ''; }
+.smart-home { display: flex; align-items: center; justify-content: space-between; gap: 2rem; margin-top: 18px; padding: clamp(24px, 3vw, 41px); background: var(--ink); color: #fff; }
+.smart-home h3 { margin: 0 0 12px; font-size: clamp(26px, 2.8vw, 37px); letter-spacing: -.045em; line-height: 1.15; }
+.smart-home p { max-width: 60ch; margin: 0; color: #d1dce7; font-size: 16px; line-height: 1.7; }
+.smart-home .underlined-link { flex: none; }
+.smart-home .underlined-link:hover { color: #d1e3f4; }
 
 .work-section { position: relative; overflow: hidden; padding: 105px 9.2% 75px; background: var(--ink-deep); color: #fff; }
 .work-section::before { position: absolute; inset: 0; background-image: linear-gradient(#c8dbeb0c 1px, transparent 1px), linear-gradient(90deg, #c8dbeb0c 1px, transparent 1px); background-size: 44px 44px; content: ''; mask-image: linear-gradient(130deg, #000, transparent 64%); pointer-events: none; }
@@ -308,8 +309,7 @@ img { max-width: 100%; }
   .service-path-copy li { font-size: 14px; }
   .service-path-small .service-path-copy { padding-top: 25px; }
   .service-path-small .service-photo { height: clamp(205px, 62vw, 290px); }
-  .service-footnote { margin-top: 19px; }
-  .service-footnote p { font-size: 14px; }
+  .smart-home { flex-direction: column; align-items: flex-start; gap: 18px; margin-top: 14px; }
   .work-section { padding: 76px 6% 55px; }
   .work-header { display: block; margin-bottom: 25px; }
   .work-header > p { max-width: 470px; margin: 14px 0 0; font-size: 16px; }
