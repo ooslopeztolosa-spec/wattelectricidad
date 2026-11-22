@@ -15,8 +15,8 @@ const flow = [
   },
   {
     key: "domotica",
-    prompt: "¿Qué te gustaría hacer con la iluminación?",
-    choices: ["Instalar luminarias inteligentes", "Conectar mis luces con Alexa", "Programar horarios", "Busco asesoramiento"]
+    prompt: "¿En qué te podemos ayudar con tu smart home?",
+    choices: ["Instalar un equipo smart home", "Instalar luminarias inteligentes", "Integrar mis equipos con Alexa", "Programar horarios", "Busco asesoramiento"]
   },
   {
     key: "espacio",
