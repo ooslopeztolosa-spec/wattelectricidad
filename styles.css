@@ -374,3 +374,39 @@ img { max-width: 100%; }
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
 }
+
+/* La portada funciona como una ficha fotográfica de obra. */
+.hero {
+  column-gap: clamp(32px, 5vw, 90px);
+  grid-template-columns: minmax(0, .94fr) minmax(0, 1.06fr);
+  padding-block: clamp(44px, 5vw, 82px);
+  min-height: 0;
+}
+.hero::after { display: none; }
+.hero h1 { font-size: clamp(52px, 5.1vw, 86px); line-height: 1.01; }
+.hero .hero-intro { line-height: 1.62; }
+.cobertura-portada { margin: 28px 0 0; padding-top: 15px; border-top: 1px solid #ffffff36; max-width: 43ch; color: #c7d7e3; font-size: 14px; line-height: 1.6; }
+.cobertura-portada strong { display: block; color: white; font-size: 14px; }
+.visor-obra { position: relative; min-width: 0; align-self: center; width: 100%; background: #f8f8f4; color: var(--ink); box-shadow: 13px 13px 0 #051a2b78; }
+.visor-obra figure { margin: 0; }
+.visor-obra figure img { display: block; width: 100%; height: clamp(285px, 29vw, 525px); object-fit: cover; object-position: 50% 14%; }
+.visor-obra img[data-vista="extractor"] { object-position: 50% 38%; }
+.visor-obra img[data-vista="tablero"] { object-position: 50% 37%; }
+.visor-obra figcaption { padding: 16px 20px; min-height: 3.9em; display: flex; align-items: center; font-size: 15px; font-weight: 600; line-height: 1.45; }
+.selector-vistas:not([hidden]) { display: flex; border-top: 1px solid #ced6db; }
+.selector-vistas button { flex: 1; min-height: 46px; border: 0; background: #f2f3ef; color: #3c5367; font-size: 14px; font-weight: 600; cursor: pointer; }
+.selector-vistas button + button { border-left: 1px solid #cbd5dd; }
+.selector-vistas button[aria-pressed="true"] { background: #dce8f4; color: #132f49; box-shadow: inset 0 -3px var(--blue); }
+.selector-vistas button:focus-visible { position: relative; outline: 3px solid var(--blue); outline-offset: -4px; }
+.project-residential .foto-extractor img { object-position: 50% 36%; }
+@media (max-width: 760px) {
+  .hero { padding-block: 36px; gap: 24px; }
+  .hero h1 { font-size: clamp(42px, 9.9vw, 64px); margin: 18px 0 14px; }
+  .hero-copy { padding-bottom: 0; }
+  .cobertura-portada { margin-top: 20px; padding-top: 12px; }
+  .visor-obra { box-shadow: 6px 6px 0 #051a2b78; }
+  .visor-obra figure img { height: clamp(230px, 69vw, 360px); }
+  .visor-obra figcaption { min-height: 4.3em; padding: 12px 14px; font-size: 14px; }
+  .main-nav { display: flex; gap: clamp(10px, 3vw, 24px); font-size: 13px; }
+  .main-nav a[href="#forma"], .main-nav a[href="#principios"] { display: none; }
+}

@@ -5,11 +5,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="theme-color" content="#102b48" />
   <meta name="description" content="Instalaciones eléctricas para viviendas y comercios, pequeñas reparaciones, emergencias y equipos smart home. Consultá a WATT por WhatsApp." />
-  <title>WATT — Electricidad bien pensada</title>
+  <title>WATT Soluciones Eléctricas · Obras y servicios en CABA y GBA</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css?v=20261121-3" />
+  <link rel="stylesheet" href="styles.css?v=20261125" />
 </head>
 <body>
   <header class="site-header">
@@ -17,32 +17,37 @@
       <span class="brand-seal"><img src="assets/watt-logo-real.png" alt="" /></span>
     </a>
     <nav class="main-nav" aria-label="Navegación principal">
-      <a href="#servicios">Qué resolvemos</a>
-      <a href="#obras">Obras reales</a>
+      <a href="#servicios">Servicios</a>
+      <a href="#obras">Obras</a>
       <a href="#forma">Cómo trabajamos</a>
-      <a href="#principios">WATT</a>
+      <a href="#principios">Sobre WATT</a>
     </nav>
     <a class="header-contact" href="#contacto">Hablemos <span aria-hidden="true">+</span></a>
   </header>
 
   <main>
-    <section class="hero" id="inicio">
+    <section class="hero portada-obra" id="inicio" aria-labelledby="titulo-portada">
       <div class="hero-copy">
-        <p class="eyebrow"><span class="eyebrow-rule"></span> DEL PLANO A LA OBRA, CON CRITERIO TÉCNICO</p>
-        <h1>Desde un detalle<br />hasta <em>toda la obra.</em></h1>
-        <p class="hero-intro">Proyectamos y ejecutamos instalaciones eléctricas para viviendas y comercios. También hacemos pequeñas reparaciones, atendemos emergencias eléctricas e instalamos equipos smart home.</p>
+        <p class="eyebrow"><span class="eyebrow-rule"></span> WATT SOLUCIONES ELÉCTRICAS · CABA</p>
+        <h1 id="titulo-portada">Consultorio Callao,<br /><em>por dentro.</em></h1>
+        <p class="hero-intro">El 18 de noviembre volvimos a Callao para colocar un extractor. Recorré el montaje, la iluminación de la recepción y el tablero con sus circuitos identificados.</p>
         <div class="hero-actions">
           <a class="button button-light" href="#contacto">Consultar a WATT</a>
-          <a class="quiet-link" href="#obras">Conocé nuestro trabajo</a>
+          <a class="quiet-link" href="#obras">Ver las obras</a>
         </div>
-        <div class="hero-signature"><span class="signature-line"></span><span>Planificación, ejecución<br />y verificación final.</span></div>
+        <p class="cobertura-portada"><strong>Servicios en CABA y GBA</strong>Instalaciones, pequeñas reparaciones, emergencias eléctricas y equipos smart home.</p>
       </div>
-      <div class="hero-art" aria-label="Instalación eléctrica terminada en un consultorio">
-        <div class="hero-image-frame"><img class="hero-image" src="assets/callao-consultorio.jpg" alt="Instalación eléctrica terminada en un consultorio odontológico de Callao" /></div>
-        <figure class="hero-detail"><img src="assets/callao-tablero.jpg" alt="Tablero eléctrico organizado y rotulado" /><figcaption>EL DETALLE TAMBIÉN ES PARTE DE LA OBRA</figcaption></figure>
-        <div class="hero-stamp"><span class="stamp-orbit"><img src="assets/watt-logo-real.png" alt="WATT Soluciones Eléctricas" /></span><small>TRABAJO REAL<br />CONSULTORIO CALLAO</small></div>
+      <div class="visor-obra">
+        <figure>
+          <img id="foto-callao" src="assets/callao-recepcion.jpg" alt="Recepción del Consultorio Callao con iluminación circular en el cielorraso" fetchpriority="high">
+          <figcaption id="epigrafe-callao" aria-live="polite">Recepción · La luz recorre el perímetro del cielorraso circular.</figcaption>
+        </figure>
+        <div class="selector-vistas" role="group" aria-label="Fotos del Consultorio Callao" hidden>
+          <button type="button" data-vista="recepcion" aria-pressed="true">Recepción</button>
+          <button type="button" data-vista="tablero" aria-pressed="false">Tablero</button>
+          <button type="button" data-vista="extractor" aria-pressed="false">Extractor</button>
+        </div>
       </div>
-      <div class="hero-bottomline"><span>CABA · GBA</span><span>RESIDENCIAL · COMERCIAL</span><span>WATT S.A.</span></div>
     </section>
 
     <section class="proof-band" aria-label="Lo que distingue el trabajo de WATT">
@@ -53,7 +58,7 @@
 
     <section class="services-section" id="servicios">
       <div class="section-heading">
-        <div><p class="eyebrow eyebrow-dark"><span class="eyebrow-rule"></span> QUÉ RESOLVEMOS</p><h2>Un proyecto completo.<br /><em>O una solución puntual.</em></h2></div>
+        <div><p class="eyebrow eyebrow-dark"><span class="eyebrow-rule"></span> SERVICIOS ELÉCTRICOS</p><h2>De un tomacorriente<br /><em>a toda la instalación.</em></h2></div>
         <p class="section-lead">Para sumar un equipo con seguridad, revisamos cuánta corriente necesita, si el cableado la soporta y qué protecciones hacen falta. Te explicamos qué conviene hacer y por qué.</p>
       </div>
       <div class="service-paths">
@@ -76,7 +81,7 @@
     </section>
 
     <section class="work-section" id="obras">
-      <div class="work-header"><div><p class="eyebrow"><span class="eyebrow-rule"></span> OBRAS Y SERVICIOS</p><h2>Hecho en obra.<br /><em>Se nota en el detalle.</em></h2></div><p>Entrá a cada carpeta para ver el espacio, la instalación y los procesos compartidos por WATT.</p></div>
+      <div class="work-header"><div><p class="eyebrow"><span class="eyebrow-rule"></span> ARCHIVO DE WATT</p><h2>De Callao<br /><em>a Necochea.</em></h2></div><p>Abrí una carpeta para ver las fotos del consultorio, la readecuación del Balneario Trafwe o el montaje de un extractor paso a paso.</p></div>
       <div class="portfolio-tools"><div class="portfolio-filters" role="group" aria-label="Filtrar trabajos"><button class="portfolio-filter is-active" data-filter="all">Todos los trabajos</button><button class="portfolio-filter" data-filter="obra">Obras integrales</button><button class="portfolio-filter" data-filter="servicio">Servicios puntuales</button></div><a class="instagram-portfolio" href="https://www.instagram.com/watt_electricidad/" target="_blank" rel="noreferrer">Más de WATT en Instagram</a></div>
       <div class="project-grid">
         <button class="project-card project-featured folder-card" data-kind="obra" data-project="callao">
@@ -87,9 +92,9 @@
           <span class="project-photo"><img src="assets/trafwe-local.jpg" alt="Fachada del Balneario Trafwe en Necochea" loading="lazy" /><span class="project-photo-wash"></span><span class="project-open">Ver carpeta <b aria-hidden="true">+</b></span><span class="project-type">NECOCHEA · COMERCIAL</span></span>
           <span class="project-info"><span><span class="project-location">ESPACIO COMERCIAL</span><span class="project-name">Balneario Trafwe</span></span><span class="project-summary">Instalación eléctrica en un entorno costero.</span></span>
         </button>
-        <button class="project-card project-residential folder-card" data-kind="servicio" data-project="reparacion">
-          <span class="project-photo"><img src="assets/instagram-reel-reparacion.jpg" alt="Portada oficial de WATT para el Reel de relevamiento y reparación eléctrica" loading="lazy" /><span class="project-photo-wash"></span><span class="project-open">Ver trabajo <b aria-hidden="true">+</b></span><span class="project-type">RELEVAMIENTO · REPARACIÓN</span></span>
-          <span class="project-info"><span><span class="project-location">SERVICIO PUNTUAL</span><span class="project-name">Revisión y reparación</span></span><span class="project-summary">Relevamiento de una instalación existente y resolución de fallas.</span></span>
+        <button class="project-card project-residential folder-card" data-kind="servicio" data-project="extractor">
+          <span class="project-photo foto-extractor"><img src="assets/callao-extractor-montaje.jpg" alt="Montaje del extractor en la pared del consultorio" loading="lazy" /><span class="project-photo-wash"></span><span class="project-open">Ver montaje <b aria-hidden="true">+</b></span><span class="project-type">CALLAO · CABA</span></span>
+          <span class="project-info"><span><span class="project-location">SERVICIO PUNTUAL</span><span class="project-name">Colocación de extractor</span></span><span class="project-summary">La abertura en la pared y el montaje del equipo, en la misma visita.</span></span>
         </button>
         <button class="project-card project-reels folder-card" data-kind="obra" data-project="videos">
           <span class="reels-visual"><span class="reel-collage" aria-hidden="true"><img src="assets/instagram-reel-reparacion.jpg" alt="" /><img src="assets/instagram-reel-fin-obra.jpg" alt="" /><img src="assets/instagram-reel-trafwe.jpg" alt="" /><img src="assets/instagram-reel-callao.jpg" alt="" /></span><span class="reels-count">4 REELS</span><span class="reels-brand"><img src="assets/watt-logo-real.png" alt="" />WATT EN OBRA</span></span>
@@ -100,23 +105,23 @@
     </section>
 
     <section class="method-section" id="forma">
-      <div class="method-copy"><p class="eyebrow eyebrow-dark"><span class="eyebrow-rule"></span> UNA FORMA DE TRABAJAR</p><h2>Claridad en cada paso.<br /><em>Confianza en cada conexión.</em></h2><p>Acordamos con vos el alcance y los materiales. Durante la obra te informamos de los avances y, antes de la entrega, verificamos la instalación.</p><a class="button button-dark" href="#contacto">Empezar una conversación</a></div>
+      <div class="method-copy"><p class="eyebrow eyebrow-dark"><span class="eyebrow-rule"></span> DEL PLANO A LA OBRA, CON CRITERIO TÉCNICO</p><h2>Claridad en cada paso.<br /><em>Confianza en cada conexión.</em></h2><p>Acordamos con vos el alcance y los materiales. Durante la obra te informamos de los avances y, antes de la entrega, verificamos la instalación.</p><a class="button button-dark" href="#contacto">Empezar una conversación</a></div>
       <div class="method-route" aria-label="Etapas del trabajo: entender, definir, ejecutar y verificar">
         <div class="route-line" aria-hidden="true"><span></span><span></span><span></span><span></span></div>
-        <article class="route-stop"><span class="route-node" aria-hidden="true"></span><div><h3>Escuchamos</h3><p>Revisamos la necesidad, el espacio y tus prioridades.</p></div></article>
-        <article class="route-stop"><span class="route-node" aria-hidden="true"></span><div><h3>Definimos</h3><p>Conversamos el alcance, los materiales y la coordinación.</p></div></article>
-        <article class="route-stop"><span class="route-node" aria-hidden="true"></span><div><h3>Ejecutamos</h3><p>Ordenamos el trabajo junto con las etapas de la obra.</p></div></article>
+        <article class="route-stop"><span class="route-node" aria-hidden="true"></span><div><h3>Relevamiento</h3><p>Vemos qué equipos vas a usar y en qué estado está la instalación.</p></div></article>
+        <article class="route-stop"><span class="route-node" aria-hidden="true"></span><div><h3>Presupuesto</h3><p>Dejamos por escrito qué se instala, quién aporta los materiales y qué queda fuera del alcance.</p></div></article>
+        <article class="route-stop"><span class="route-node" aria-hidden="true"></span><div><h3>Seguimiento</h3><p>Te mostramos qué quedó instalado y qué falta para la próxima etapa.</p></div></article>
         <article class="route-stop"><span class="route-node" aria-hidden="true"></span><div><h3>Verificamos</h3><p>Revisamos conexiones y protecciones antes del cierre.</p></div></article>
         <div class="method-seal"><img src="assets/watt-logo-real.png" alt="WATT Soluciones Eléctricas" /></div>
       </div>
     </section>
 
     <section class="principles-section" id="principios">
-      <div class="principles-heading"><p class="eyebrow eyebrow-dark"><span class="eyebrow-rule"></span> LO QUE NOS GUÍA</p><h2>Una manera de hacer<br /><em>las cosas bien.</em></h2></div>
+      <div class="principles-heading"><p class="eyebrow eyebrow-dark"><span class="eyebrow-rule"></span> SOBRE WATT</p><h2>El equipo que entra<br /><em>a tu obra.</em></h2></div>
       <div class="principles-grid">
         <article class="principle-card"><span class="principle-label">MISIÓN</span><h3>Resolver con criterio técnico.</h3><p>Planificar y ejecutar instalaciones eléctricas para hogares, comercios y obras, con claridad y atención en cada etapa.</p></article>
         <article class="principle-card"><span class="principle-label">VISIÓN</span><h3>Ser una referencia de confianza.</h3><p>Acompañar proyectos de distintas escalas y convertir cada necesidad eléctrica en una solución bien pensada.</p></article>
-        <article class="principle-card"><span class="principle-label">VALORES</span><h3>El modo también importa.</h3><p>Responsabilidad, compromiso, respeto, comunicación clara y atención al detalle.</p></article>
+        <article class="principle-card"><span class="principle-label">VALORES</span><h3>Cuidar el espacio y a quienes lo usan.</h3><p>Eso implica revisar las protecciones, coordinar con quienes trabajan en el lugar y explicar cada cambio antes de avanzar.</p></article>
       </div>
     </section>
 
@@ -141,6 +146,6 @@
 
   <footer class="site-footer"><a class="footer-brand" href="#inicio" aria-label="WATT, inicio"><img src="assets/watt-logo-real.png" alt="WATT Soluciones Eléctricas" /></a><p>Instalaciones eléctricas<br />para viviendas y comercios.</p><span class="footer-legal">© 2026 WATT S.A.</span></footer>
   <a class="floating-whatsapp" href="#contacto" aria-label="Ir a contacto"><span class="floating-seal"><img src="assets/watt-logo-real.png" alt="" /></span><span>Hablemos</span></a>
-  <script src="script.js?v=20261121-4"></script>
+  <script src="script.js?v=20261125"></script>
 </body>
 </html>

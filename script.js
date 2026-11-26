@@ -109,12 +109,42 @@ document.querySelector("#smart-home-contact").addEventListener("click", () => {
 });
 resetChat();
 
+const fotoCallao = document.querySelector("#foto-callao");
+const epigrafeCallao = document.querySelector("#epigrafe-callao");
+const selectorVistas = document.querySelector(".selector-vistas");
+const vistasCallao = {
+  recepcion: {
+    src: fotoCallao.getAttribute("src"), alt: fotoCallao.alt,
+    caption: epigrafeCallao.textContent
+  },
+  tablero: {
+    src: "assets/callao-tablero.jpg", alt: "Detalle del tablero eléctrico del consultorio",
+    caption: "Tablero · La identificación permite ubicar cada circuito."
+  },
+  extractor: {
+    src: "assets/callao-extractor-montaje.jpg", alt: "Extractor en montaje sobre la pared",
+    caption: "Extractor · Montaje en la pared durante la visita del 18 de noviembre."
+  }
+};
+selectorVistas.hidden = false;
+selectorVistas.addEventListener("click", (event) => {
+  const elegido = event.target.closest("button[data-vista]");
+  if (!elegido) return;
+  const vista = vistasCallao[elegido.dataset.vista];
+  fotoCallao.src = vista.src;
+  fotoCallao.alt = vista.alt;
+  fotoCallao.dataset.vista = elegido.dataset.vista;
+  epigrafeCallao.textContent = vista.caption;
+  selectorVistas.querySelectorAll("button").forEach(b => b.setAttribute("aria-pressed", String(b === elegido)));
+});
+
 const portfolio = {
   callao: {
     title: "Consultorio Callao", kicker: "OBRA COMERCIAL · ESPACIO DE SALUD",
     description: "Instalación eléctrica para un consultorio odontológico: iluminación, alimentación de equipos y tableros organizados para el uso diario.",
     media: [
       { type: "image", src: "assets/callao-consultorio.jpg", alt: "Consultorio odontológico terminado" },
+      { type: "image", src: "assets/callao-recepcion.jpg", alt: "Iluminación perimetral en recepción", title: "Recepción · Registro de noviembre de 2026" },
       { type: "image", src: "assets/callao-sala.jpg", alt: "Iluminación de la sala del consultorio" },
       { type: "image", src: "assets/callao-tablero.jpg", alt: "Tablero eléctrico del consultorio" },
       { type: "instagram", id: "Dep1yKiu2c4", src: "assets/instagram-reel-callao.jpg", alt: "Portada del Reel de la instalación eléctrica integral en Consultorios de Callao", title: "Ver la obra en Instagram" }
@@ -129,11 +159,12 @@ const portfolio = {
       { type: "instagram", id: "DeaizPkuXKS", src: "assets/instagram-reel-trafwe.jpg", alt: "Portada del Reel de readecuación eléctrica del Balneario Trafwe", title: "Ver la obra en Instagram" }
     ]
   },
-  reparacion: {
-    title: "Relevamiento y reparación", kicker: "SERVICIO PUNTUAL · WATT",
-    description: "Una instalación existente también merece atención: revisamos los puntos a intervenir y resolvemos las reparaciones necesarias.",
+  extractor: {
+    title: "Colocación de extractor", kicker: "VISITA DEL 18 DE NOVIEMBRE DE 2026 · CALLAO",
+    description: "En esta visita colocamos un extractor en el consultorio. Las dos fotos muestran el lugar de la intervención y el equipo durante el montaje.",
     media: [
-      { type: "instagram", id: "DeXWOWjugMg", src: "assets/instagram-reel-reparacion.jpg", alt: "Portada oficial de WATT para el Reel de relevamiento y reparación eléctrica", title: "Ver el trabajo en Instagram" }
+      { type: "image", src: "assets/callao-extractor-abertura.jpg", alt: "Abertura circular en la pared", title: "Ubicación de la abertura" },
+      { type: "image", src: "assets/callao-extractor-montaje.jpg", alt: "Extractor presentado en la pared durante el montaje", title: "Montaje del extractor" }
     ]
   },
   videos: {
